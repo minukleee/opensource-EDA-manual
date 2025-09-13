@@ -1,22 +1,24 @@
 # opensource-EDA-manual
 
-// 8bit ALU Verilog
+
+# 8bit ALU Verilog
 module alu8bit(
     input  [7:0] A,
     input  [7:0] B,
     input  [1:0] op,
     input        clk,
     output reg [7:0] result
-);// 각 연산의 출력 와이어 선언
+);
+# 각 연산의 출력 와이어 선언
     wire [7:0] and_out, or_out, add_out, sub_out;
     
-    // 하위 연산 모듈 인스턴스화
+# 하위 연산 모듈 인스턴스화
     and8 u_and(.a(A), .b(B), .y(and_out));
     or8  u_or (.a(A), .b(B), .y(or_out));
     add8 u_add(.a(A), .b(B), .y(add_out));
     sub8 u_sub(.a(A), .b(B), .y(sub_out));
     
-    // 4:1 멀티플렉서 (조합논리) - op 코드에 따른 출력 선택
+# 4:1 멀티플렉서 (조합논리) - op 코드에 따른 출력 선택
     reg [7:0] mux_out;
     always @* begin
         case (op)
@@ -34,28 +36,25 @@ module alu8bit(
 endmodule
 
 
-// AND Verilog// 8-bit AND module (조합논리)
+# AND Verilog, 8-bit AND module (조합논리)
 module and8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a & b;
 endmodule
 
 
-// OR Verilog
-// 8-bit OR module (조합논리)
+# OR Verilog, 8-bit OR module (조합논리)
 module or8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a | b;
 endmodule
 
 
-// ADD Verilog
-// 8-bit ADD module (조합논리)
+# ADD Verilog, 8-bit ADD module (조합논리)
 module add8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a + b;
 endmodule
 
 
-// SUB Verilog
-// 8-bit SUB module (조합논리)
+# SUB Verilog, 8-bit SUB module (조합논리)
 module sub8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a - b;
 endmodule
