@@ -1,6 +1,4 @@
-# 사용한 코드.
-
-## 메인 ALU 모듈 (`alu8bit`)
+# 메인 ALU 모듈 (`alu8bit`)
 
 ```verilog
 module alu8bit(
