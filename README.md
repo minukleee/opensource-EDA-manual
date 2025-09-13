@@ -1,4 +1,4 @@
-# 8bit ALU Verilog
+# 사용한 코드.
 
 ## 메인 ALU 모듈 (`alu8bit`)
 
