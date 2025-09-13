@@ -82,7 +82,7 @@ set ::env(CLOCK_PERIOD) "10.0"                           ;# 클럭 주기 (10ns 
 set ::env(PL_TARGET_DENSITY) "0.7"                       ;# 배치 셀 밀도
 ```
 
-# (PDK별 기본 설정 포함)
+# PDK별 기본 설정 포함
 
 ```tcl
 set filename "$::env(DESIGN_DIR)/$::env(PDK)_$::env(STD_CELL_LIBRARY)_config.tcl"
