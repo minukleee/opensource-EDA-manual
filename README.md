@@ -3,6 +3,7 @@
 
 # 8bit ALU Verilog
 
+// 모듈 정의
 module alu8bit(
     input  [7:0] A,
     input  [7:0] B,
@@ -46,30 +47,40 @@ endmodule
 
 
 # AND Verilog, 8-bit AND module (조합논리)
+
+// AND
 module and8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a & b;
 endmodule
 
 
 # OR Verilog, 8-bit OR module (조합논리)
+
+// OR
 module or8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a | b;
 endmodule
 
 
 # ADD Verilog, 8-bit ADD module (조합논리)
+
+// ADD
 module add8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a + b;
 endmodule
 
 
 # SUB Verilog, 8-bit SUB module (조합논리)
+
+// SUB
 module sub8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a - b;
 endmodule
 
 
 # OpenLane 설정 파일 (config.tcl)
+
+// config.tcl
 set ::env(DESIGN_NAME) "alu8bit"                      ;# 최상위 모듈명 (top module)
 set ::env(VERILOG_FILES) [glob $::env(DESIGN_DIR)/src/*.v] ;# Verilog 소스 파일 경로들
 set ::env(CLOCK_PORT) "clk"                              ;# 클럭 입력 포트 이름
@@ -77,5 +88,7 @@ set ::env(CLOCK_PERIOD) "10.0"                           ;# 클럭 주기 (10ns 
 set ::env(PL_TARGET_DENSITY) "0.7"                       ;# 배치 셀 밀도
 
 # (PDK별 기본 설정 포함)
+
+// plus
 set filename "$::env(DESIGN_DIR)/$::env(PDK)_$::env(STD_CELL_LIBRARY)_config.tcl"
 if { [file exists $filename] } { source $filename }
