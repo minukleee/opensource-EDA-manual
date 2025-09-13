@@ -33,6 +33,8 @@ module alu8bit(
     end
 endmodule
 
+<br>
+
 
 ## AND module (조합논리)
 
@@ -40,6 +42,8 @@ endmodule
 module and8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a & b;
 endmodule
+
+<br>
 
 ## OR module (조합논리)
 
