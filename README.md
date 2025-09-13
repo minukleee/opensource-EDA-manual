@@ -34,14 +34,14 @@ module alu8bit(
 endmodule
 
 
-# AND module (조합논리)
+## AND module (조합논리)
 
 ```verilog
 module and8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a & b;
 endmodule
 
-# OR module (조합논리)
+## OR module (조합논리)
 
 ```verilog
 module or8(input [7:0] a, input [7:0] b, output [7:0] y);
@@ -49,7 +49,7 @@ module or8(input [7:0] a, input [7:0] b, output [7:0] y);
 endmodule
 
 
-# ADD module (조합논리)
+## ADD module (조합논리)
 
 ```verilog
 module add8(input [7:0] a, input [7:0] b, output [7:0] y);
@@ -64,10 +64,10 @@ module sub8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a - b;
 endmodule
 
-#TCL
+##TCL
 
 
-# OpenLane 설정 파일 (config.tcl)
+## OpenLane 설정 파일 (config.tcl)
 
 ```tcl
 set ::env(DESIGN_NAME) "alu8bit"                      ;# 최상위 모듈명 (top module)
@@ -76,7 +76,7 @@ set ::env(CLOCK_PORT) "clk"                              ;# 클럭 입력 포트
 set ::env(CLOCK_PERIOD) "10.0"                           ;# 클럭 주기 (10ns = 100MHz)
 set ::env(PL_TARGET_DENSITY) "0.7"                       ;# 배치 셀 밀도
 
-# (PDK별 기본 설정 포함)
+## (PDK별 기본 설정 포함)
 
 ```tcl
 set filename "$::env(DESIGN_DIR)/$::env(PDK)_$::env(STD_CELL_LIBRARY)_config.tcl"
