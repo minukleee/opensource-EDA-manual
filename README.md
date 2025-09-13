@@ -1,16 +1,8 @@
-# opensource-EDA-manual
-
-
-# 8bit ALU Verilog
+opensource-EDA-manual
+8bit ALU Verilog
+Verilog
 
 // 모듈 정의
-module alu8bit(
-    input  [7:0] A,
-    input  [7:0] B,
-    input  [1:0] op,
-    input        clk,
-    output reg [7:0] result
-);
 module alu8bit(
     input  [7:0] A,
     input  [7:0] B,
@@ -35,57 +27,51 @@ module alu8bit(
             2'b01:  mux_out = or_out;    // OR 연산 결과
             2'b10:  mux_out = add_out;   // ADD 연산 결과
             2'b11:  mux_out = sub_out;   // SUB 연산 결과
-            default: mux_out = 8'h00;    // 디폴트 (사용하지 않는 코드의 경우 0)
+            default: mux_out = 8'h00;   // 디폴트 (사용하지 않는 코드의 경우 0)
         endcase
     end
-   
+    
     always @(posedge clk) begin
         result <= mux_out;
     end
 endmodule
-
-
-
-# AND Verilog, 8-bit AND module (조합논리)
+AND Verilog, 8-bit AND module (조합논리)
+Verilog
 
 // AND
 module and8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a & b;
 endmodule
-
-
-# OR Verilog, 8-bit OR module (조합논리)
+OR Verilog, 8-bit OR module (조합논리)
+Verilog
 
 // OR
 module or8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a | b;
 endmodule
-
-
-# ADD Verilog, 8-bit ADD module (조합논리)
+ADD Verilog, 8-bit ADD module (조합논리)
+Verilog
 
 // ADD
 module add8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a + b;
 endmodule
-
-
-# SUB Verilog, 8-bit SUB module (조합논리)
+SUB Verilog, 8-bit SUB module (조합논리)
+Verilog
 
 // SUB
 module sub8(input [7:0] a, input [7:0] b, output [7:0] y);
     assign y = a - b;
 endmodule
-
-
-# OpenLane 설정 파일 (config.tcl)
+OpenLane 설정 파일 (config.tcl)
+Tcl
 
 // config.tcl
 set ::env(DESIGN_NAME) "alu8bit"                      ;# 최상위 모듈명 (top module)
 set ::env(VERILOG_FILES) [glob $::env(DESIGN_DIR)/src/*.v] ;# Verilog 소스 파일 경로들
-set ::env(CLOCK_PORT) "clk"                              ;# 클럭 입력 포트 이름
-set ::env(CLOCK_PERIOD) "10.0"                           ;# 클럭 주기 (10ns = 100MHz)
-set ::env(PL_TARGET_DENSITY) "0.7"                       ;# 배치 셀 밀도
+set ::env(CLOCK_PORT) "clk"                           ;# 클럭 입력 포트 이름
+set ::env(CLOCK_PERIOD) "10.0"                        ;# 클럭 주기 (10ns = 100MHz)
+set ::env(PL_TARGET_DENSITY) "0.7"                    ;# 배치 셀 밀도
 
 # (PDK별 기본 설정 포함)
 
