@@ -1,7 +1,29 @@
-### tool: OpenLane ( https://github.com/The-OpenROAD-Project/OpenLane )
+### Tool: OpenLane ( https://github.com/The-OpenROAD-Project/OpenLane )
+```
+cd $HOME
+git clone https://github.com/The-OpenROAD-Project/OpenLane
+cd OpenLane
+make
+make test
+```
+
 ### PDK: Skywater130nm PDK ( https://github.com/gdsfactory/skywater130 )
 
 
+### Platform: Docker
+```bash
+sudo apt-get update
+sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+```bash
+sudo systemctl status docker
+sudo docker run hello-world
+```
 
 # 메인 ALU 모듈 (`alu8bit`)
 
